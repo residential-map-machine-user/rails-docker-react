@@ -1,0 +1,13 @@
+version: '2'
+services:
+  react:
+    build:
+      context: .
+      dockerfile: Dockerfile.development
+      args:
+        - REACT_HOME=${PWD}
+    ports:
+      - '4000:4000'
+    volumes:
+      - .:${PWD}
+    command: npm run start

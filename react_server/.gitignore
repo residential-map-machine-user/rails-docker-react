@@ -1,7 +1,6 @@
 *.class
 *.log
 .DS_Store
-*.env
 
 # Scala-IDE specific
 .idea/

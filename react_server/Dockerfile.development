@@ -1,0 +1,6 @@
+FROM node:latest
+
+ARG REACT_HOME
+
+RUN mkdir -p $REACT_HOME
+WORKDIR $REACT_HOME

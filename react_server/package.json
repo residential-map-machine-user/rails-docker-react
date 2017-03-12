@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dashboard -- webpack-dev-server -d --hot --inline --port 4000",
+    "start": "webpack-dev-server -d --hot --inline --port 4000 --host 0.0.0.0",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "watch": "webpack-dashboard -- webpack -d --watch"
+    "watch": "webpack -d --watch"
   },
   "repository": {
     "type": "git",
