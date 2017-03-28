@@ -7,7 +7,7 @@ import Form from './Form';
 import AppBar from 'react-toolbox/lib/app_bar';
 import Navigation from 'react-toolbox/lib/navigation';
 import Link from 'react-toolbox/lib/Link';
-import {Row, Col} from 'react-flexbox-grid';
+import {Row, Col, Grid} from 'react-flexbox-grid';
 
 const GithubIcon = () => (
     <svg viewBox="0 0 284 277">
@@ -41,11 +41,13 @@ class App extends Component {
                   <Link href="http://" active label="Profile" icon="person" />
               </Navigation>
           </AppBar>
-          <Row>
-              <Col xs={12} sm={3} md={2} lg={1}><div>hello</div></Col>
-              <Col xs={6} sm={6} md={8} lg={10}><div>hello</div></Col>
-              <Col xs={6} sm={3} md={2} lg={1}><div>hello</div></Col>
-          </Row>
+          <Grid>
+              <Row>
+                  <Col xs={12} sm={3} md={2} lg={1}><div>hello</div></Col>
+                  <Col xs={6} sm={6} md={8} lg={10}><div>hello</div></Col>
+                  <Col xs={6} sm={3} md={2} lg={1}><div>hello</div></Col>
+              </Row>
+          </Grid>
           <div className="l-wrapper">
               <div className="c-container">
                   <h1 className="c-title c-title--primary">Modal</h1>
