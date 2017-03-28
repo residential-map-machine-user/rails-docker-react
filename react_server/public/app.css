@@ -257,11 +257,9 @@ a:hover, a:focus, a:active {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  margin-bottom: 8px;
 }
 
 p {
-  margin-bottom: 8px;
 }
 
 input[type="radio"] {
@@ -567,7 +565,7 @@ input[type="radio"] {
     margin: 0 auto;
   }
 }
-/* 
+/*
 #beadcrumb
 
 ```
@@ -1061,7 +1059,7 @@ containerと併用して使う
   background: #f24b4b;
 }
 
-/* 
+/*
 # container
 
 ```
@@ -1308,7 +1306,7 @@ a自体のスタイルは適用しない方針
   transform: translateX(0);
 }
 
-/* 
+/*
 # floating-menu
 
 主に中にボタンが入る
@@ -1366,7 +1364,7 @@ formデザイン
       <input type="radio" name="radio" id="radio1"><label for="radio1">radio1</label>
       <input type="radio" name="radio" id="radio2"><label for="radio2">radio2</label>
     </p>
-    
+
     <h3 class="c-form__title">セレクト</h3>
     <p>
       <div class="c-form__select">
@@ -1661,7 +1659,7 @@ formデザイン
     margin-top: -11px;
   }
 }
-/* 
+/*
 #label
 
 ```
@@ -1697,7 +1695,7 @@ formデザイン
   color: #f2f2f2;
 }
 
-/* 
+/*
 # loading
 
 ```
@@ -2132,7 +2130,7 @@ formデザイン
     padding: 0 16px 0 48px;
   }
 }
-/* 
+/*
 # media
 
 card、containerと組み合わせて使う
@@ -2646,7 +2644,7 @@ card、containerと組み合わせて使う
   color: #b7b7b7;
 }
 
-/* 
+/*
 #thumb
 
 ```

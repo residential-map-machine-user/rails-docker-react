@@ -1,4 +1,5 @@
 import React from'react'
+//import './FieldInput.scss'
 
 export default class FieldInput extends React.Component {
   constructor(props) {
@@ -6,7 +7,7 @@ export default class FieldInput extends React.Component {
   }
 
   render() {
-    const {input, label, type, meta, meta: { touched, error }} = this.props
+    const {input, label, type, meta, meta: { touched, error }} = this.props;
     return (
       <div className="c-container--full">
         <label>{label}</label>
