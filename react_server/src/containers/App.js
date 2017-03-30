@@ -7,7 +7,101 @@ import Form from './Form';
 import AppBar from 'react-toolbox/lib/app_bar';
 import Navigation from 'react-toolbox/lib/navigation';
 import Link from 'react-toolbox/lib/Link';
-import {Row, Col} from 'react-flexbox-grid';
+import {Row, Col, Grid} from 'react-flexbox-grid';
+import { DefaultPlayer as Video } from 'react-html5video';
+import { List, ListItem, ListSubHeader, ListDivider, ListCheckbox } from 'react-toolbox/lib/list';
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import { Card, CardMedia, CardTitle, CardText, CardActions } from 'react-toolbox/lib/card';
+import ReactDOM from 'react-dom';
+import rd3 from 'rd3';
+
+const dummyText = 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.';
+
+class Live2d extends React.Component {
+    componentDidMount(){
+        let canvas = ReactDOM.findDOMNode(this.refs.glcanvas);
+        let ctx = canvas.getContext('2d');
+        let live2d = ReactDOM.findDOMNode(this.refs.live2d);
+        let scriptsUrl = ["./live2d/live2d.min.js", "./live2d/Live2dFramework.js", "./live2d/utils/MatrixStack.js", "./live2d/utils/ModelSettingJson.js","./live2d/PlatformManager.js", "./live2d/LAppDefine.js","./live2d/LAppModel.js", "./live2d/LAppLive2DManager.js", "./live2d/SampleApp1.js"]
+        scriptsUrl.map((url)=>{
+            let script = document.createElement("script");
+            script.setAttribute('src',url);
+            live2d.appendChild(script);
+        });
+    }
+
+    render(){
+        return (
+            <div ref="live2d" >
+                <h3>Live2d</h3>
+                <canvas style={{
+                    backgroundSize: "150%",
+                    backgroundImage: "url(./live2d/assets/image/back_class_normal.png)"
+                }} ref="glcanvas"/>
+            </div>
+        )
+    }
+}
+
+const ListTest = () => (
+    <List selectable ripple>
+        <ListSubHeader caption='Explore characters' />
+        <ListItem
+            avatar='https://dl.dropboxusercontent.com/u/2247264/assets/m.jpg'
+            caption='Dr. Manhattan'
+            legend="Jonathan 'Jon' Osterman"
+            rightIcon='star'
+        />
+        <ListItem
+            avatar='https://dl.dropboxusercontent.com/u/2247264/assets/o.jpg'
+            caption='Ozymandias'
+            legend='Adrian Veidt'
+            rightIcon='star'
+        />
+        <ListItem
+            avatar='https://dl.dropboxusercontent.com/u/2247264/assets/o.jpg'
+            caption='Ozymandias'
+            legend='Adrian Veidt'
+            rightIcon='star'
+        />
+        <ListItem
+            avatar='https://dl.dropboxusercontent.com/u/2247264/assets/r.jpg'
+            caption='Rorschach'
+            legend='Walter Joseph Kovacs'
+            rightIcon='star'
+        />
+        <ListItem
+            avatar='https://dl.dropboxusercontent.com/u/2247264/assets/o.jpg'
+            caption='Ozymandias'
+            legend='Adrian Veidt'
+            rightIcon='star'
+        />
+        <ListDivider />
+        <ListItem caption='Contact the publisher' leftIcon='send' />
+    </List>
+);
+
+
+
+const LineChart = rd3.LineChart;
+const lineData = [
+    {
+        name: 'series1',
+        values: [ { x: 0, y: 20 }, { x: 1, y: 30 }, { x: 2, y: 10 }, { x: 3, y: 5 }, { x: 4, y: 8 }, { x: 5, y: 15 }, { x: 6, y: 10 } ],
+        strokeWidth: 3,
+        strokeDashArray: "5,5",
+    },
+    {
+        name: 'series2',
+        values : [ { x: 0, y: 8 }, { x: 1, y: 5 }, { x: 2, y: 20 }, { x: 3, y: 12 }, { x: 4, y: 4 }, { x: 5, y: 6 }, { x: 6, y: 2 } ]
+    },
+    {
+        name: 'series3',
+        values: [ { x: 0, y: 0 }, { x: 1, y: 5 }, { x: 2, y: 8 }, { x: 3, y: 2 }, { x: 4, y: 6 }, { x: 5, y: 4 }, { x: 6, y: 2 } ]
+    }
+];
+
+
 
 const GithubIcon = () => (
     <svg viewBox="0 0 284 277">
@@ -39,13 +133,76 @@ class App extends Component {
               <Navigation type="horizontal">
                   <Link href="http://" label="Inbox" icon="inbox" />
                   <Link href="http://" active label="Profile" icon="person" />
+                  <Link href="http://" label="SginIn" icon="inbox" />
+                  <Link href="http://" label="Register" icon="inbox" />
               </Navigation>
           </AppBar>
-          <Row>
-              <Col xs={12} sm={3} md={2} lg={1}><div>hello</div></Col>
-              <Col xs={6} sm={6} md={8} lg={10}><div>hello</div></Col>
-              <Col xs={6} sm={3} md={2} lg={1}><div>hello</div></Col>
-          </Row>
+              <Row>
+                  <Col xs={8} style={{padding:0}}>
+                      <Video loop muted
+                             controls={['PlayPause', 'Seek', 'Time', 'Volume', 'Fullscreen']}
+                             poster="./proto.JPG"
+                             style={{height:400}} onCanPlayThrough={() => {
+                                 // Do stuffkk
+                             }}>
+                          <source src="./aa.mp4" type="video/mp4" />
+                      </Video>
+                  </Col>
+                  <Col xs={4} style={{backgroundColor:"white", height:400, overflow: "scroll", boxShadow:" 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12)"}}>
+                      <ListTest></ListTest>
+                  </Col>
+              </Row>
+              <Row style={{height:500}}>
+                  <Col xs={8} style={{boxShadow:" 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12)", backgroundColor:"white"}}>
+                      <Tabs
+                          onSelect={this.handleSelect}
+                          selectedIndex={0}>
+                          <TabList>
+                              <Tab>Ref
+                              </Tab>
+                              <Tab>Stat</Tab>
+                              <Tab>Friend</Tab>
+                          </TabList>
+                          <TabPanel>
+                              <Card style={{width: '350px'}}>
+                                  <CardMedia
+                                      aspectRatio="wide"
+                                      image="https://placeimg.com/800/450/nature"
+                                  />
+                                  <CardTitle
+                                      title="Title goes here"
+                                      subtitle="Subtitle here"
+                                  />
+                              </Card>
+                          </TabPanel>
+                          <TabPanel>
+                              <LineChart
+                                  legent={true}
+                                  data={lineData}
+                                  width="100%"
+                                  height={400}
+                                  viewBoxObject={{
+                                  x:0,
+                                  y:0,
+                                  width: 500,
+                                  height: 400
+                                  }}
+                                  title="Line Chart"
+                                  yAxisLabel="Altitude"
+                                  xAxisLabel="Elapsed Time"
+                                  domain={{x:[,6],y: [-10,]}}
+                                  gridHorizontal={true}>
+                              </LineChart>
+                          </TabPanel>
+                          <TabPanel>
+                              <h2>Hello from Baz</h2>
+                          </TabPanel>
+                      </Tabs>
+                  </Col>
+                  <Col xs={4} style={{background:"white", height:500, boxShadow:" 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12)", padding:0}}>
+                      <Live2d></Live2d>
+                  </Col>
+              </Row>
           <div className="l-wrapper">
               <div className="c-container">
                   <h1 className="c-title c-title--primary">Modal</h1>
@@ -54,8 +211,7 @@ class App extends Component {
                       handleModalOpen={this.handleModalOpen.bind(this)}
                       handleModalClose={this.handleModalClose.bind(this)}
                       show={show}
-                      title='modalテスト'
-                  >
+                      title='modalテスト'>
                       モーダル内容
                   </Modal>
               </div>
