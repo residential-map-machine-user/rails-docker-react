@@ -85,6 +85,7 @@ const settings = {
     },
     devServer: {
         contentBase: path.join(__dirname,"public"),
+        headers: { "Access-Control-Allow-Origin": "*" },
         publicPath: "http://localhost:8080/", // full URL is necessary for Hot Module Replacement if additional path will be added.
         quiet: false,
         hot: true,
